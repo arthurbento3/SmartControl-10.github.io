@@ -5,46 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="assets/css/dashboard.css"> 
+    <script src="assets/js/main.js" defer></script>
 </head>
 <body>
-    <header>
-        <img src="assets/images/logo.png">
-        <form method="get" action="index.html">
-            Bem-vindo! <button type="submit">Logout </button> </form>
-    </header>
 
-     <main>
-        <p>Visão Geral</p>
-        <img src="assets/images/grafico1.png" alt="">
-        <img src="assets/images/grafico2.png" alt="">
-        <img src="assets/images/grafico3.png" alt="">
+    <nav class="navbar">
+        <input type="checkbox" id="menu-toggle">
+        
+        <div class="logo-area">
+            <img src="assets/images/logo.png" alt="Smart Control Logo">
+            <span>Smart Control</span>
+        </div>
+    
+        <ul class="main-menu">
+            <li class="dropdown">
+                <label for="menu-toggle" class="menu-icon"></label>
+                <span class="menu-title">Menu</span>
+                <ul class="sub-menu">
+                    <li><a href="relatoriosmensais.html">Relatórios Mensais</a></li>
+                    <li><a href="temporeal.html">Relatórios em tempo real</a></li>
+                    <li><a href="config.html">Configurações</a></li>
+                </ul>
+            </li>
+        </ul>
+    
+        <button class="btn-audio" title="Áudio">🔊</button>
+    </nav>
 
-        <p>Alertas Ativos</p>
-        <p>12</p>
-        <p>Dispositivos Conectados</p>
-        <p>58</p>
-        <p>Manutenção Pendente</p>
-        <p>3</p>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <form method="get" action="index.html">
+                    <span>Bem-vindo!</span>
+                    <button type="submit">Logout</button>
+                </form>
+            </div>
+        </header>
 
-        <nav class="navbar">
-            <ul class="main-menu">
-                <li class="dropdown">
-                    Menu
-                    <ol class="sub-menu">
-                        <li><a href="relatoriosmensais.html">Relatórios Mensais</a></li>
-                        <li><a href="temporeal.html">Relatórios em tempo real</a></li>
-                        <li><a href="config.html">Configurações</a></li>
-                    </ol>
-                
-                <p></p><button>Audio</button>
+        <main>
+            <section class="title-section">
+                <h1>Visão Geral</h1>
+                <p>Acompanhe os principais indicadores do sistema</p>
+            </section>
 
-     </main>
+            <section class="charts-grid">
+                <div class="card chart-card">
+                    <img src="assets/images/grafico1.png" alt="Gráfico 1">
+                </div>
+                <div class="card chart-card">
+                    <img src="assets/images/grafico2.png" alt="Gráfico 2">
+                </div>
+                <div class="card chart-card">
+                    <img src="assets/images/grafico3.png" alt="Gráfico 3">
+                </div>
+            </section>
 
-     <footer>
-        <p>Sede da Empresa</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15647.198948564112!2d142.18926606178334!3d11.349333259574765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x67328f3cd57de715%3A0x1bbe64e7a21aa7fc!2sFossa%20das%20Marianas!5e0!3m2!1spt-BR!2sbr!4v1785241440366!5m2!1spt-BR!2sbr" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-    </footer>
-   
+            <section class="bottom-grid">
+                <div class="card quick-links-card">
+                    <h3>Gráficos Rápidos</h3>
+                    <div class="quick-links">
+                        <a href="#">📄 Relatório Mensal de Consumo</a>
+                        <a href="#">⏱ Relatório em Tempo Real de Eficiência</a>
+                        <a href="#">📑 Encerramentos Recentes</a>
+                        <a href="#">🔧 Histórico de Manutenção</a>
+                    </div>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="card kpi-card">
+                        <span class="kpi-title">Alertas Ativos</span>
+                        <span class="kpi-value">12</span>
+                    </div>
+                    <div class="card kpi-card">
+                        <span class="kpi-title">Dispositivos Conectados</span>
+                        <span class="kpi-value">58</span>
+                    </div>
+                    <div class="card kpi-card">
+                        <span class="kpi-title">Manutenção Pendente</span>
+                        <span class="kpi-value">3</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Sede da Empresa</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15647.198948564112!2d142.18926606178334!3d11.349333259574765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x67328f3cd57de715%3A0x1bbe64e7a21aa7fc!2sFossa%20das%20Marianas!5e0!3m2!1spt-BR!2sbr!4v1785241440366!5m2!1spt-BR!2sbr" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </footer>
+    </div>
 
 </body>
 </html>
