@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -22,6 +22,7 @@ body {
   color: var(--texto-escuro);
   display: flex;
   min-height: 100vh;
+  transition:  0.3s ease, color 0.3s ease;
 }
 
 .navbar {
@@ -37,6 +38,7 @@ body {
   box-shadow: 2px 0 15px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .navbar:hover {
@@ -49,6 +51,7 @@ body {
   gap: 15px;
   padding: 20px;
   height: 80px;
+  width: 100%;
 }
 
 .logo-area img {
@@ -126,17 +129,31 @@ body {
   color: var(--azul-principal);
 }
 
-.btn-audio {
-  margin: 20px;
-  width: 45px;
-  height: 45px;
+#bnt-theme-toggle, .btn-audio {
+  margin: 10px auto ;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   border: none;
   background: var(--azul-icone-audio);
   color: var(--branco);
-  font-size: 20px;
+  font-size: 18px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 153, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+#bnt-theme-toggle {
+  background: var(--azul-principal);
+  border: 2px solid var(--azul-icone-audio);
+}
+
+#bnt-theme-toggle:hover {
+  transform: scale(1.08);
+  background: var(--azul-icone-audio);
 }
 
 .app-container {
@@ -164,6 +181,12 @@ header form {
   gap: 15px;
 }
 
+header form span {
+  color: #ffffff ;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
 header button {
   background: var(--branco);
   color: var(--azul-principal);
@@ -182,6 +205,14 @@ main {
   gap: 30px;
 }
 
+.title-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
 .title-section h1 {
   font-size: 32px;
   color: var(--azul-titulo);
@@ -191,6 +222,26 @@ main {
   font-size: 14px;
   color: var(--texto-secundario);
   margin-top: 5px;
+}
+
+#campoBusca {
+  width: 100%;
+  max-width: 600px;
+  padding: 14px 20px 14px 48px;
+  border: 2px solid #a5c7e1;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23002b66' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 18px center;
+}
+
+#campoBusca:focus {
+  border-color: var(--azul-principal);
+  box-shadow: 0 4px 15px rgba(0, 43, 102, 0.2);
 }
 
 .card {
@@ -206,10 +257,20 @@ main {
   gap: 20px;
 }
 
+.chart-card {
+  padding: 10px ;
+  border: none ;
+  background: var(--branco);
+  border-radius: 16px;
+  box-shadow: var(--sombra);
+}
+
 .chart-card img {
   width: 100%;
   height: auto;
   object-fit: contain;
+  border-radius: 12px;
+  border: none ;
 }
 
 .bottom-grid {
@@ -288,6 +349,7 @@ footer iframe {
   max-width: 400px;
   border-radius: 12px;
 }
+
 #menu-toggle {
   display: none;
 }
@@ -299,6 +361,71 @@ footer iframe {
   display: inline-block;
   user-select: none;
 }
+
+
+body.dark-theme {
+  --azul-claro: #0a1322;
+  --branco: #152238;
+  --texto-escuro: #f1f5f9;
+  --texto-secundario: #94a3b8;
+  --azul-titulo: #38bdf8;
+  --azul-principal: #38bdf8;
+  --sombra: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme header {
+  background: #38bdf8;
+}
+
+body.dark-theme header form span {
+  color: #f1f5f9 ;
+}
+
+body.dark-theme .navbar {
+  background: #152238;
+  border-right: 1px solid #1e293b;
+}
+
+body.dark-theme .dropdown,
+body.dark-theme .menu-icon,
+body.dark-theme .logo-area span {
+  color: #38bdf8 ;
+}
+
+body.dark-theme #bnt-theme-toggle {
+  background: #38bdf8;
+  color: #ffffff;
+  border-color: #0099ff;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+}
+
+body.dark-theme .kpi-value {
+  color: #38bdf8 ;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+body.dark-theme .kpi-title,
+body.dark-theme .quick-links-card h3,
+body.dark-theme .quick-links a {
+  color: #ffffff ;
+}
+
+body.dark-theme .quick-links a:hover {
+  background: #1e293b;
+  color: #38bdf8 ;
+}
+
+body.dark-theme #campoBusca {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  border-color: #38bdf8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+}
+
+body.dark-theme #campoBusca::placeholder {
+  color: #64748b;
+}
+
 
 @media (max-width: 600px) {
   .app-container {
@@ -327,18 +454,29 @@ footer iframe {
   .logo-area {
     padding: 0;
     height: auto;
+    width: auto;
   }
 
   .menu-icon {
-    display: block !important;
+    display: block ;
     font-size: 28px;
     color: var(--azul-principal);
     padding: 5px;
+    cursor: pointer;
   }
 
   .logo-area span,
   .menu-title {
     display: none;
+  }
+
+  /* Exibe botões na barra superior no celular */
+  #bnt-theme-toggle, .btn-audio {
+    display: flex ;
+    margin: 0 4px ;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
   }
 
   .sub-menu {
@@ -355,27 +493,35 @@ footer iframe {
     z-index: 1300;
   }
 
-  #menu-toggle:checked ~ .main-menu .sub-menu {
-    display: flex;
+  .sub-menu.active-mobile {
+    display: flex ;
   }
 
-  .btn-audio {
-    margin: 0;
-    width: 38px;
-    height: 38px;
-    font-size: 16px;
+  body.dark-theme .sub-menu {
+    background: #152238;
   }
 
   header {
-    height: 50px;
-    padding: 0 15px;
+    height: auto;
+    padding: 10px 15px;
     background: transparent;
-    justify-content: flex-end;
+    justify-content: center;
   }
 
   header form {
     color: var(--texto-escuro);
     font-size: 13px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  header form span {
+    color: var(--texto-escuro) ;
+  }
+
+  body.dark-theme header form span {
+    color: #f1f5f9 ;
   }
 
   header button {
