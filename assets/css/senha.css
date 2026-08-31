@@ -1,0 +1,180 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Força a página a ocupar 100% de largura e altura da tela */
+html, body {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+}
+
+/* ===================================================
+   LADO ESQUERDO (Cinza claro, ocupando metade da tela)
+   =================================================== */
+.painel-esquerdo {
+    width: 50%;
+    height: 100vh;
+    background-color: #e3f0fb; /* Cor cinza exata do fundo esquerdo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%;
+    position: relative;
+}
+
+.conteudo-esquerdo h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #002b66;
+    margin-bottom: 8px;
+}
+
+.conteudo-esquerdo h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #002b66;
+    margin-bottom: 40px;
+}
+
+.conteudo-esquerdo p {
+    font-size: 0.95rem;
+    color: #002b66;
+    line-height: 1.5;
+    max-width: 320px;
+}
+
+.rodape-esquerdo {
+    position: absolute;
+    bottom: 25px;
+    left: 10%;
+    font-size: 0.75rem;
+    color: #002b66;
+}
+
+.rodape-esquerdo a {
+    color: #002b66;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* ===================================================
+   LADO DIREITO (Bege/Off-white, ocupando a outra metade)
+   =================================================== */
+.painel-direito {
+    width: 50%;
+    height: 100vh;
+    background-color: #ffffff; /* Cor creme/off-white da tela original */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container-formulario {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Logo centralizada acima do formulário */
+.logo {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.logo img {
+    max-width: 180px;
+    height: auto;
+}
+
+/* Título */
+.container-formulario h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+}
+
+/* Formulário e Campos */
+form {
+    width: 100%;
+}
+
+.campo {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 0.8rem;
+    color: #444444;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    background-color: #ffffff; 
+    font-size: 0.85rem;
+    outline: none;
+    color: #333;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+input:focus {
+    border-color: #1b263b;
+    background-color: #ffffff;
+}
+
+/* Botão Azul Escuro */
+.btn-principal {
+    width: 100%;
+    padding: 13px;
+    background-color: #002b66; /* Azul marinho escuro exato */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.2s;
+}
+
+.btn-principal:hover {
+    background-color: #1d2939;
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .painel-esquerdo {
+        display: none; /* Esconde a lateral cinza no celular */
+    }
+
+    .painel-direito {
+        width: 100%;
+        min-height: 100vh;
+        height: auto;
+        padding: 40px 20px;
+    }
+}

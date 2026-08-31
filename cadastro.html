@@ -1,37 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Smart Control - Cadastro</title>
+    <link rel="stylesheet" href="assets/css/cadastro.css">
 </head>
 <body>
-    <p>Bem-vindo (a)</p>
-    <p>Que bom ter você aqui!</p>
-    <p>Acesse sua conta para continuar aprendendo, ensinando e eveluindo juntos.</p>
-    <img src="assets/images/logo.png">
-    <p>Crie sua Conta</p>
-    <P><label for="nome">Nome Completo</label></P>
-    <input type="name" name="nome" id="nome" placeholder="Digitar Nome" required>
-    <p><label for="data">Data de Nascimento</label></p>
-    <input type="date" name="data" id="data" placeholder="Crie a Senha" required>
-    <P><label for="email">E-mail</label></P>
-    <input type="email" name="email" id="email" placeholder="Cadastrar E-mail" required>
-    <p><label for="senha">Senha</label></p>
-    <input type="password" name="senha" id="senha" placeholder="Crie a Senha" required="8">
-    <p><a href="index.html"> <button>Criar Conta</button></a></p>
+    <div class="container">
+        <div class="left-panel">
+            <div class="welcome-content">
+                <h1>Bem-vindo (a)</h1>
+                <h2>Que bom ter você aqui!</h2>
+                <p>Acesse sua conta para continuar aprendendo, ensinando e evoluindo juntos.</p>
+            </div>
+            <div class="footer-note">
+                Este ambiente é acessível para todos. Se precisar de ajuda, <a href="#">clique aqui</a>
+            </div>
+        </div>
 
-    <p><label for="nivel">Nível de Acesso</label><br></p>
-    <select name="nivel" id="nivel" required>
-        <option value="">Selecione um nível</option>
-        <option value="bronze">Bronze</option>
-        <option value="prata">Prata</option>
-        <option value="ouro">Ouro</option>
-    </select>
-    
-    
-        <input type="checkbox" id="termos" name="termos" required>
-        <label for="termos">Aceito os Termos de Uso</label>
-    </p>
+        <div class="right-panel">
+            <div class="form-wrapper">
+                <img src="assets/images/logo.png" alt="Smart Control Logo" class="logo">
+                <h3>Crie sua Conta</h3>
+
+                <form action="index.html" method="POST">
+                    <div class="input-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" name="nome" id="nome" placeholder="Digitar Nome" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="data">Data de Nascimento</label>
+                        <input type="date" name="data" id="data" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" id="email" placeholder="Cadastrar E-mail" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" id="senha" placeholder="Crie a Senha" minlength="8" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="nivel">Nível de Acesso</label>
+                        <select name="nivel" id="nivel" required>
+                            <option value="">Selecione um nível</option>
+                            <option value="bronze">Bronze</option>
+                            <option value="prata">Prata</option>
+                            <option value="ouro">Ouro</option>
+                        </select>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="termos" name="termos" required>
+                        <label for="termos">Aceito os Termos de Uso</label>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Criar Conta</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

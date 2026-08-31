@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.left-panel {
+    flex: 1;
+    background-color: #e3f0fb; 
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.welcome-content {
+    margin-top: 100px;
+}
+
+.welcome-content h1 {
+    font-size: 2.2rem;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.welcome-content h2 {
+    font-size: 1.2rem;
+    color: #002b66;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.welcome-content p {
+    color: #002b66;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 380px;
+}
+
+.footer-note {
+    font-size: 0.8rem;
+    color: #002b66;
+}
+
+.footer-note a {
+    color: #002b66;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.right-panel {
+    flex: 1;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+}
+
+.logo {
+    max-width: 150px;
+    margin-bottom: 25px;
+}
+
+.right-panel h3 {
+    font-size: 1.3rem;
+    color: #1a1a2e;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.8rem;
+    color: #002b66;
+    margin-bottom: 5px;
+}
+
+.input-group input, 
+.input-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: transparent;
+    font-size: 0.85rem;
+    color: #002b66;
+    outline: none;
+}
+
+.input-group input:focus, 
+.input-group select:focus {
+    border-color: #002b66;
+}
+
+/* Checkbox */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 15px 0 20px 0;
+    font-size: 0.85rem;
+    color: #002b66;
+}
+
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #002b66;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: #1e293b;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; 
+        height: auto;          
+        min-height: 100vh;
+    }
+
+    .left-panel {
+        padding: 40px 20px 30px 20px;
+        text-align: center;
+    }
+
+    .welcome-content {
+        margin-top: 20px;
+    }
+
+    .welcome-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .welcome-content h2 {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .welcome-content p {
+        margin: 0 auto;
+        font-size: 0.9rem;
+    }
+
+    .footer-note {
+        margin-top: 30px;
+    }
+
+    .right-panel {
+        padding: 40px 20px;
+    }
+
+    .form-wrapper {
+        max-width: 100%; 
+    }
+
+    
+    .input-group input, 
+    .input-group select {
+        padding: 12px;
+        font-size: 1rem; 
+    }
+
+    .btn-submit {
+        padding: 14px;
+        font-size: 1rem;
+    }
+}

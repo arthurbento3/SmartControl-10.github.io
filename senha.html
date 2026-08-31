@@ -3,24 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Criar Nova Senha - Smart Control</title>
+    <link rel="stylesheet" href="assets/css/senha.css">
 </head>
 <body>
-    
-    <header>
-        <img src="assets/imagens/logo.png" >
-    </header>
- 
-    <main>
-        <form  method="get" action="index.html">
-            <p>Criar sua nova senha</p>
-            <p><label for="email">E-mail</label></p>
-            <input type="email" name="email" id="email" placeholder="Digite o E-mail" required>
-            <p><label for="senha">Digite sua nova senha</label></p>
-            <input type="password" name="senha" id="senha" placeholder="Digite a Senha" required minlength=8>
-            <p><label for="senha">Confirme sua nova senha</label></p>
-            <input type="password" name="senha" id="senha" placeholder="Digite a Senha" required minlength=8>
-            <p><button type="submit">Criar</button></p>
+
+    <!-- Lado Esquerdo: Boas-vindas -->
+    <section class="painel-esquerdo">
+        <div class="conteudo-esquerdo">
+            <h2>Bem-vindo (a)</h2>
+            <h3>Que bom ter você aqui!</h3>
+            <p>Acesse sua conta para continuar aprendendo, ensinando e evoluindo juntos.</p>
+        </div>
+        <div class="rodape-esquerdo">
+            <p>Este ambiente é acessível para todos. Se precisar de ajuda, <a href="#">clique aqui</a></p>
+        </div>
+    </section>
+
+    <!-- Lado Direito: Formulário e Logo -->
+    <main class="painel-direito">
+        <div class="container-formulario">
+            <header class="logo">
+                <img src="assets/images/logo.png" alt="Smart Control Logo">
+            </header>
+
+            <h2>Criar sua nova senha</h2>
+
+            <form method="get" action="index.html">
+                <div class="campo">
+                    <label for="email">E-mail:</label>
+                    <input type="email" name="email" id="email" placeholder="Digite o E-mail" required>
+                </div>
+
+                <div class="campo">
+                    <label for="senha">Digite sua nova senha:</label>
+                    <input type="password" name="senha" id="senha" placeholder="Digite a Senha" required minlength="8">
+                </div>
+
+                <div class="campo">
+                    <label for="confirma_senha">Confirme sua nova senha:</label>
+                    <input type="password" name="confirma_senha" id="confirma_senha" placeholder="Digite a Senha" required minlength="8">
+                </div>
+
+                <button type="submit" class="btn-principal">Criar</button>
+            </form>
+        </div>
     </main>
 
 </body>
