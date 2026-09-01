@@ -1,64 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Relatórios Mensais - Smart Control</title>
+    <link rel="stylesheet" href="assets/css/configurações.css">
+    <script src="assets/js/relatoriosmensais.js" defer></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p><a href="dashboard.html"> <button>Voltar </button></a></p>
-    <img src="assets/images/logo.png">
-    <table>
-        <p>Relatórios Mensais</p>
-        <caption>Resumo Mensal</caption>
-    
-        <thead>
-            <tr>
-                <th>Módulo</th>
-                <th>Acessos totais</th>
-                <th>Tempo médio</th>
-                <th>Novas inscrições</th>
-                <th>Conclusões</th>
-            </tr>
-        </thead>
+
+    <aside class="sidebar">
+        <div class="sidebar-top">
         
-        <tbody>
-            <tr>
-                <td>Dashboard</td>
-                <td>300</td>
-                <td>212 min</td>
-                <td>4</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>Biblioteca</td>
-                <td>550</td>
-                <td>142 min</td>
-                <td>14</td>
-                <td>32</td>
-            </tr>
-            <tr>
-                <td>Fórum</td>
-                <td>220</td>
-                <td>147 min</td>
-                <td>11</td>
-                <td>35</td>
-            </tr>
-            <tr>
-                <td>Ot...</td>
-                <td>115</td>
-                <td>138 min</td>
-                <td>5</td>
-                <td>9</td>
-            </tr>
-            <tr>
-                <td>Cursos</td>
-                <td>88</td>
-                <td>135 min</td>
-                <td>0</td>
-                <td>13</td>
-            </tr>
-        </tbody>
-    </table>
+            <div class="logo-container">
+                <img src="assets/images/logo.png" alt="Smart Control" class="logo" onerror="this.src='https://via.placeholder.com/40/0d1b2a/ffffff?text=SC'">
+                <span class="logo-text">Smart Control</span>
+            </div>
+
+            <div class="nav-item dropdown">
+                <button class="icon-btn" id="menuBtn" title="Menu Navegação">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Menu / Dashboard</a>
+                    <a href="relatorios.html"><i class="fa-solid fa-clock"></i> Relatórios em Tempo Real</a>
+                    <a href="configurações.html"><i class="fa-solid fa-gear"></i> Configurações</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-bottom">
+            <button class="icon-btn" id="themeToggle" title="Modo Escuro / Claro">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
+
+            <button class="icon-btn" id="audioBtn" title="Ativar Áudio">
+                <i class="fa-solid fa-volume-high"></i>
+            </button>
+        </div>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="topbar">
+            <div class="topbar-right">
+                <span class="user-info">Olá, Usuário! Hoje é Terça-Feira</span>
+                <a href="index.html" class="logout-btn">
+                    Logout <i class="fa-solid fa-right-from-bracket"></i>
+                </a>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="header-actions">
+                <a href="dashboard.html" class="btn-back">
+                    <i class="fa-solid fa-arrow-left"></i> Voltar
+                </a>
+            </div>
+
+            <div class="card-container">
+                <h1>Relatórios Mensais</h1>
+
+                <div class="table-container">
+                    <table>
+                        <caption>Resumo Mensal</caption>
+                        <thead>
+                            <tr>
+                                <th>Módulo</th>
+                                <th>Acessos totais</th>
+                                <th>Tempo médio</th>
+                                <th>Novas inscrições</th>
+                                <th>Conclusões</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dashboard</td>
+                                <td>300</td>
+                                <td>212 min</td>
+                                <td>4</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Biblioteca</td>
+                                <td>550</td>
+                                <td>142 min</td>
+                                <td>14</td>
+                                <td>32</td>
+                            </tr>
+                            <tr>
+                                <td>Fórum</td>
+                                <td>220</td>
+                                <td>147 min</td>
+                                <td>11</td>
+                                <td>35</td>
+                            </tr>
+                            <tr>
+                                <td>Outros</td>
+                                <td>115</td>
+                                <td>138 min</td>
+                                <td>5</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td>Cursos</td>
+                                <td>88</td>
+                                <td>135 min</td>
+                                <td>0</td>
+                                <td>13</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="chart-section">
+                    <h3>Acessos: Comparativo Mensal (Este Ano vs Ano Anterior)</h3>
+                    <canvas id="acessosChart" height="90"></canvas>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div>
+                            <small>Total de Conclusões do Mês</small>
+                            <div class="metric-value">1.502</div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div>
+                            <small>Taxa de Engajamento</small>
+                            <div class="metric-value">77%</div>
+                        </div>
+                        <div class="progress-circle">
+                            <span class="progress-text">77%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+
+        <footer class="bottom-bar">
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
