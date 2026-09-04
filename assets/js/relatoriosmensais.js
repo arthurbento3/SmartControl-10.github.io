@@ -1,140 +1,75 @@
-let comparativoChart = null;
 
-document.addEventListener('DOMContentLoaded', () => {
-  
-  // 1. Botão Voltar Funcional
-  const btnVoltar = document.getElementById('btn-voltar');
-  if (btnVoltar) {
-    btnVoltar.addEventListener('click', () => {
-      if (window.history.length > 1) {
-        window.history.back();
-      } else {
-        window.location.href = 'index.html';
-      }
-    });
-  }
+Chart.register(ChartDataLabels);
 
-  // 2. Botão Logout Funcional
-  const btnLogout = document.getElementById('btn-logout');
-  if (btnLogout) {
-    btnLogout.addEventListener('click', () => {
-      if (confirm('Deseja realmente sair do sistema?')) {
-        window.location.href = 'login.html';
-      }
-    });
-  }
+const sidebar = document.getElementById('sidebar');
+const btnToggleSidebar = document.getElementById('btnToggleSidebar');
 
-  // 3. Botão Modo Escuro Funcional
-  const themeBtn = document.getElementById('theme-toggle');
-  if (themeBtn) {
-    themeBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      
-      const themeIcon = themeBtn.querySelector('i');
-      if (themeIcon) {
-        themeIcon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-      }
+btnToggleSidebar.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+});
 
-      // Atualizar cores do gráfico
-      if (comparativoChart) {
-        const color2024 = isDark ? '#60a5fa' : '#0a2540';
-        const textColor = isDark ? '#94a3b8' : '#475569';
 
-        comparativoChart.data.datasets[0].borderColor = color2024;
-        comparativoChart.data.datasets[0].pointBackgroundColor = color2024;
-        comparativoChart.options.scales.x.ticks.color = textColor;
-        comparativoChart.options.scales.y.ticks.color = textColor;
-        comparativoChart.update();
-      }
-    });
-  }
+const themeBtn = document.getElementById('bnt-theme-toggle');
+themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
 
-  // 4. Botão de Áudio (Text-to-Speech)
-  const audioBtn = document.getElementById('audio-toggle');
-  if (audioBtn) {
-    audioBtn.addEventListener('click', () => {
-      if ('speechSynthesis' in window) {
-        if (window.speechSynthesis.speaking) {
-          window.speechSynthesis.cancel();
-          return;
-        }
+const audioBtn = document.querySelector('.btn-audio');
+audioBtn.addEventListener('click', () => {
+    alert("Recurso de Áudio ativado!");
+});
 
-        const resumoTexto = "Relatórios mensais. Total de conclusões do mês: 1.502. Taxa de engajamento: 77%. Maior volume de acessos na biblioteca com 550 acessos.";
-        const utterance = new SpeechSynthesisUtterance(resumoTexto);
-        utterance.lang = 'pt-BR';
-        window.speechSynthesis.speak(utterance);
-      } else {
-        alert('Recurso de síntese de voz não suportado neste navegador.');
-      }
-    });
-  }
+const ctx = document.getElementById('acessosChart').getContext('2d');
 
-  // 5. Renderização do Gráfico Chart.js
-  const canvas = document.getElementById('comparativoChart');
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-
-    comparativoChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jun'],
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul'],
         datasets: [
-          {
-            label: '2024',
-            data: [160, 300, 550, 430, 340, 550, 420],
-            borderColor: '#0a2540',
-            backgroundColor: 'rgba(10, 37, 64, 0.08)',
-            borderWidth: 2,
-            pointRadius: 4,
-            pointBackgroundColor: '#0a2540',
-            tension: 0.35,
-            fill: true
-          },
-          {
-            label: '2023',
-            data: [200, 420, 420, 290, 340, 420, 160],
-            borderColor: '#38bdf8',
-            backgroundColor: 'transparent',
-            borderWidth: 2,
-            pointRadius: 4,
-            pointBackgroundColor: '#38bdf8',
-            tension: 0.35
-          }
+            {
+                label: '2024',
+                data: [300, 550, 550, 430, 420, 550, 420],
+                borderColor: '#1b2a4a',
+                backgroundColor: '#1b2a4a',
+                tension: 0,
+                pointRadius: 5,
+                pointBackgroundColor: '#1b2a4a',
+                borderWidth: 2
+            },
+            {
+                label: '2023',
+                data: [200, 300, 420, 290, 340, 420, 160],
+                borderColor: '#0ea5e9',
+                backgroundColor: '#0ea5e9',
+                tension: 0,
+                pointRadius: 5,
+                pointBackgroundColor: '#0ea5e9',
+                borderWidth: 2
+            }
         ]
-      },
-      options: {
+    },
+    options: {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: {
-            display: false
-          }
+            legend: { display: false },
+            datalabels: {
+                align: 'top',
+                anchor: 'end',
+                offset: 4,
+                font: { size: 11, weight: 'bold' },
+                color: function(context) { return context.dataset.borderColor; },
+                formatter: function(value) { return value; }
+            }
         },
         scales: {
-          x: {
-            grid: {
-              display: false
+            y: {
+                beginAtZero: true,
+                max: 650,
+                ticks: { stepSize: 200 },
+                grid: { color: 'rgba(255, 255, 255, 0.3)' }
             },
-            ticks: {
-              color: '#475569',
-              font: { size: 11 }
-            }
-          },
-          y: {
-            min: 0,
-            max: 600,
-            ticks: {
-              stepSize: 200,
-              color: '#475569',
-              font: { size: 11 }
-            },
-            grid: {
-              color: '#e2e8f0'
-            }
-          }
+            x: { grid: { display: false } }
         }
-      }
-    });
-  }
+    }
 });

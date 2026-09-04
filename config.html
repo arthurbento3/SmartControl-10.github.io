@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurações Do Sistema</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Ícones Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Faixa Azul Escuro Superior -->
+  <header class="top-bar">
+    <button class="btn-top btn-voltar" id="btn-voltar" type="button">
+      <i class="fa-solid fa-arrow-left"></i> Voltar
+    </button>
+    <button class="btn-top btn-logout" id="btn-logout" type="button">
+      Logout
+    </button>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="main-content">
+    
+    <h1 class="page-title">Configurações Do Sistema</h1>
+
+    <div class="settings-grid">
+      
+      <!-- 1. Idioma e Tradução -->
+      <section class="card config-card">
+        <div class="card-header-icon">
+          <div class="icon-circle">
+            <i class="fa-solid fa-language"></i>
+          </div>
+          <h2 class="config-title">Idioma e Tradução</h2>
+        </div>
+
+        <div class="field-group">
+          <select class="custom-select" id="select-idioma">
+            <option value="pt-BR">Selecionar línguas</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="en-US">English (US)</option>
+            <option value="es-ES">Español</option>
+          </select>
+        </div>
+
+        <button class="btn-action" id="btn-traducao" type="button">Tradução</button>
+      </section>
+
+      <!-- 2. Conta e Perfil -->
+      <section class="card config-card">
+        <div class="card-header-icon">
+          <div class="icon-circle">
+            <i class="fa-regular fa-user"></i>
+          </div>
+          <h2 class="config-title">Conta e Perfil</h2>
+        </div>
+
+        <div class="buttons-stack">
+          <button class="btn-action btn-icon-text" type="button">
+            <i class="fa-regular fa-user"></i>
+            <span>Mudar de conta</span>
+          </button>
+          
+          <button class="btn-action btn-icon-text" type="button">
+            <i class="fa-solid fa-lock"></i>
+            <span>Gerenciar Perfil</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 3. Privacidade e Segurança -->
+      <section class="card config-card">
+        <div class="card-header-icon">
+          <div class="icon-circle">
+            <i class="fa-shield-halved fa-solid"></i>
+          </div>
+          <h2 class="config-title">Privacidade e Segurança</h2>
+        </div>
+
+        <div class="toggle-list">
+          <div class="toggle-item">
+            <span>Serviços de locação</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="toggle-item">
+            <span>Compartilhei os dados</span>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="link-item">
+            <a href="#" id="link-esqueceu-senha">Esqueceu sua senha</a>
+          </div>
+        </div>
+
+        <button class="btn-action" id="btn-privacidade" type="button">Privacidade</button>
+      </section>
+
+      <!-- 4. Acessibilidade (Com Modo Escuro Integrado) -->
+      <section class="card config-card">
+        <div class="card-header-icon">
+          <h2 class="config-title">Acessibilidade <span class="sub-title">(Adicional)</span></h2>
+        </div>
+
+        <div class="toggle-list">
+          <!-- Modo Escuro / Alto Contraste -->
+          <div class="toggle-item">
+            <span>Modo Escuro / Alto Contraste</span>
+            <label class="switch">
+              <input type="checkbox" id="dark-mode-toggle">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="toggle-item">
+            <span>Tamanho da Fonte</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="toggle-item">
+            <span>Controle de Voz</span>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Faixa Azul Escuro Inferior -->
+  <footer class="bottom-bar">
+    Sede da Empresa
+  </footer>
+
+  <!-- JS -->
+  <script src="assets/js/configurações.js"></script>
+</body>
+</html>

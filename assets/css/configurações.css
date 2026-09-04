@@ -14,7 +14,6 @@
   --icon-color: #1d4ed8;
 }
 
-/* Modo Escuro */
 body.dark-mode {
   --bg-page: #0b1329;
   --header-bg: #040a17;
@@ -276,7 +275,7 @@ input:checked + .slider:before {
   }
 
   .settings-grid {
-    grid-template-columns: 1fr; /* Transforma em 1 coluna no celular */
+    grid-template-columns: 1fr; 
   }
 
   .main-content {
