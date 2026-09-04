@@ -1,13 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Relatórios em Tempo Real</title>
+    <link rel="stylesheet" href="assets/css/temporeal.css">
 </head>
 <body>
-    <p><a href="dashboard.html"> <button>Voltar </button></a></p>
-    <img src="assets/images/logo.png">
-    <p>Relatório em Tempo Real</p>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <header class="top-bar">
+      <a href="dashboard.html" class="btn-top btn-voltar" onclick="if(history.length > 1){ history.back(); return false; }">
+      <i class="fa-solid fa-arrow-left"></i> Voltar
+    </a>
+    
+
+    <a href="index.html" class="btn-top btn-logout" onclick="return confirm('Deseja realmente sair do sistema?');">
+      Logout
+    </a>
+  </header>
+
+  </header>
+
+  <main class="main-content">
+    
+
+    <h1 class="page-title">Relatório em tempo real</h1>
+
+    <div class="grid-top">
+      
+      <section class="card card-line-chart">
+        <h2 class="card-title">Usuários Online - Tempo Real</h2>
+        <div class="chart-container-line">
+          <canvas id="realtimeLineChart"></canvas>
+        </div>
+      </section>
+
+      <div class="metrics-column">
+        <section class="card metric-card">
+          <span class="metric-label">Média de Tempo de Sessão</span>
+          <div class="metric-value">08:32 <span class="metric-unit">min</span></div>
+        </section>
+
+        <section class="card metric-card">
+          <span class="metric-label">Novas Inscrições (Hoje)</span>
+          <div class="metric-value">15</div>
+        </section>
+      </div>
+
+    </div>
+
+    <section class="card card-bar-chart">
+      <h2 class="card-title">Acessos por Módulo (Última Hora)</h2>
+      <div class="chart-container-bar">
+        <canvas id="moduleBarChart"></canvas>
+      </div>
+    </section>
+
+  </main>
+
+  <aside class="floating-tools">
+    <button class="btn-tool" id="theme-toggle" type="button" title="Alternar Modo Escuro / Claro">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+    <button class="btn-tool" id="audio-toggle" type="button" title="Ouvir Resumo">
+      <i class="fa-solid fa-volume-high"></i>
+    </button>
+  </aside>
+
+  <footer class="bottom-bar">
+  </footer>
+
+  <script src="assets/js/temporeal.js"></script>
 </body>
 </html>

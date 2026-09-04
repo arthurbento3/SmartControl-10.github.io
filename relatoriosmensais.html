@@ -7,146 +7,130 @@
     <link rel="stylesheet" href="assets/css/relatoriosmensais.css">
 <body>
 
-    <!-- Sidebar Branca Retrátil -->
-    <aside class="sidebar" id="sidebar">
-        <button class="toggle-sidebar-btn" id="btnToggleSidebar" title="Expandir/Recolher Menu">☰</button>
-        
-        <div class="sidebar-top">
-            <!-- Logo "S" -->
-            <div class="logo-box">
-                <span class="logo-icon">S</span>
-                <span class="logo-subtext">Smart Control</span>
-            </div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-            <!-- Navegação Home -->
-            <nav class="sidebar-menu">
-                <a href="dashboard.html" class="nav-item active" title="Início">
-                    <span class="nav-icon">🏠</span>
-                    <span class="nav-text">Home</span>
-                </a>
-            </nav>
-        </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
 
-        <!-- Botões no Rodapé da Sidebar -->
-        <div class="sidebar-bottom">
-            <button id="bnt-theme-toggle" type="button" class="bnt-tema" title="Alternar Tema">
-                <span class="btn-icon">🌓</span>
-                <span class="btn-text">Tema</span>
-            </button>
-            <button class="btn-audio" type="button" title="Áudio">
-                <span class="btn-icon">🔊</span>
-                <span class="btn-text">Áudio</span>
-            </button>
-        </div>
-    </aside>
-
-    <!-- Área de Conteúdo Principal -->
-    <div class="main-wrapper">
-        
-        <!-- Header com Faixa Separadora Azul Escuro -->
-        <header class="header-bar">
-            <h1>Relatórios mensais</h1>
-            <a href="login.html" class="logout-pill">Logout 🚪</a>
-        </header>
-
-        <main class="content">
-            <div class="main-card">
-                
-                <!-- Tabela de Resumo -->
-                <section class="table-section">
-                    <h2>Resumo Mensal</h2>
-                    <div class="table-responsive">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Módulo</th>
-                                    <th>Acessos Totais</th>
-                                    <th>Tempo Médio</th>
-                                    <th>Novas Inscrições</th>
-                                    <th>Conclusões</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Dashboard</td>
-                                    <td>300</td>
-                                    <td>212 min</td>
-                                    <td>4</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>Biblioteca</td>
-                                    <td>550</td>
-                                    <td>142 min</td>
-                                    <td>14</td>
-                                    <td>32</td>
-                                </tr>
-                                <tr>
-                                    <td>Fórum</td>
-                                    <td>220</td>
-                                    <td>147 min</td>
-                                    <td>11</td>
-                                    <td>35</td>
-                                </tr>
-                                <tr>
-                                    <td>Outros</td>
-                                    <td>115</td>
-                                    <td>138 min</td>
-                                    <td>5</td>
-                                    <td>9</td>
-                                </tr>
-                                <tr>
-                                    <td>Cursos</td>
-                                    <td>88</td>
-                                    <td>135 min</td>
-                                    <td>0</td>
-                                    <td>13</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- Gráfico num Card Azul Claro Separado -->
-                <section class="chart-section-blue">
-                    <div class="chart-header">
-                        <h3>Acessos: Comparativo Mensal (Este Ano vs Ano Anterior)</h3>
-                        <div class="chart-legend-custom">
-                            <span class="legend-item"><i class="dot dark"></i> 2024</span>
-                            <span class="legend-item"><i class="dot blue"></i> 2023</span>
-                        </div>
-                    </div>
-                    <div class="canvas-box">
-                        <canvas id="acessosChart"></canvas>
-                    </div>
-                </section>
-
-                <!-- Métricas do Rodapé -->
-                <section class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-info">
-                            <span class="metric-label">Total de Conclusões do Mês</span>
-                            <span class="metric-value">1.502</span>
-                        </div>
-                        <div class="progress-ring ring-blue">
-                            <div class="ring-inner"></div>
-                        </div>
-                    </div>
-
-                    <div class="metric-card">
-                        <div class="metric-info">
-                            <span class="metric-label">Taxa de Engajamento</span>
-                        </div>
-                        <div class="progress-ring ring-percentage">
-                            <span class="ring-text">77%</span>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
-        </main>
+  <header class="top-header">
+    <div class="header-left">
+      <button class="btn-voltar" id="btn-voltar" type="button">
+        <i class="fa-solid fa-arrow-left"></i> Voltar
+      </button>
     </div>
+    <div class="header-right">
+      <button class="btn-logout" id="btn-logout" type="button">Logout</button>
+    </div>
+  </header>
 
-    <script src="assets/js/relatoriosmensais.js"></script>
+  <main class="main-container">
+    <h1 class="page-title">Relatórios mensais</h1>
+
+    <section class="card">
+      <h2 class="card-title">Resumo Mensal</h2>
+      <div class="table-responsive">
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>Módulo</th>
+              <th>Acessos Totais</th>
+              <th>Tempo Médio</th>
+              <th>Novas Inscrições</th>
+              <th>Conclusões</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dashboard</td>
+              <td>300</td>
+              <td>212 min</td>
+              <td>4</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Biblioteca</td>
+              <td>550</td>
+              <td>142 min</td>
+              <td>14</td>
+              <td>32</td>
+            </tr>
+            <tr>
+              <td>Fórum</td>
+              <td>220</td>
+              <td>147 min</td>
+              <td>11</td>
+              <td>35</td>
+            </tr>
+            <tr>
+              <td>Ot...</td>
+              <td>115</td>
+              <td>138 min</td>
+              <td>5</td>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td>Cursos</td>
+              <td>88</td>
+              <td>135 min</td>
+              <td>0</td>
+              <td>13</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="chart-header">
+        <h2 class="card-title">Acessos: Comparativo Mensal (Este Ano vs Ano Anterior)</h2>
+        <div class="chart-legend-custom">
+          <span class="legend-item"><span class="dot dot-2024"></span> 2024</span>
+          <span class="legend-item"><span class="dot dot-2023"></span> 2023</span>
+        </div>
+      </div>
+      <div class="chart-container">
+        <canvas id="comparativoChart"></canvas>
+      </div>
+    </section>
+
+    <div class="kpi-row">
+      <div class="card kpi-card">
+        <div class="kpi-info">
+          <span class="kpi-label">Total de Conclusões do Mês</span>
+          <div class="kpi-value">1.502</div>
+        </div>
+        <div class="donut-chart ring-conclusoes">
+          <div class="donut-inner"></div>
+        </div>
+      </div>
+
+      <div class="card kpi-card">
+        <div class="kpi-info">
+          <span class="kpi-label">Taxa de Engajamento</span>
+          <div class="kpi-value"></div>
+        </div>
+        <div class="gauge-chart-container">
+          <div class="semi-circle-gauge">
+            <span class="gauge-text">77%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="accessibility-bar">
+    <button class="btn-tool" id="theme-toggle" type="button" title="Ativar Modo Escuro">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+    <button class="btn-tool" id="audio-toggle" type="button" title="Ouvir Resumo">
+      <i class="fa-solid fa-volume-high"></i>
+    </button>
+  </aside>
+
+  <footer class="bottom-footer">
+  </footer>
+
+  <script src="assets/js/relatoriosmensais.js"></script>
 </body>
 </html>

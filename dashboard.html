@@ -6,13 +6,10 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="assets/css/dashboard.css"> 
     <script src="assets/js/main.js" defer></script>
-    
 </head>
 <body>
 
     <nav class="navbar">
-        <input type="checkbox" id="menu-toggle">
-        
         <div class="logo-area">
             <img src="assets/images/logo.png" alt="Smart Control Logo">
             <span>Smart Control</span>
@@ -20,18 +17,23 @@
     
         <ul class="main-menu">
             <li class="dropdown">
-                <label for="menu-toggle" class="menu-icon"></label>
-                <span class="menu-title">Menu</span>
+                <div class="menu-header" id="btn-menu-mobile">
+                    <span class="menu-icon">☰</span>
+                    <span class="menu-title">Menu</span>
+                </div>
                 <ul class="sub-menu">
                     <li><a href="relatoriosmensais.html">Relatórios Mensais</a></li>
                     <li><a href="temporeal.html">Relatórios em tempo real</a></li>
-                    <li><a href="configuracoes.html">Configurações</a></li>
+                    <li><a href="configurações.html">Configurações</a></li>
                 </ul>
             </li>
         </ul>
-        <button id="bnt-theme-toggle" type="button" class="bnt-tema">🌓</button>
-        <button class="btn-audio" title="Áudio">🔊</button>
     </nav>
+
+    <div class="accessibility-float-buttons">
+        <button id="bnt-theme-toggle" type="button" class="btn-float" title="Alternar Tema">🌙</button>
+        <button class="btn-audio btn-float" title="Áudio">🔊</button>
+    </div>
 
     <div class="app-container">
         <header>
@@ -44,7 +46,7 @@
 
         <main>
             <section class="title-section">
-            <input type="text" id="campoBusca">
+                <input type="text" id="campoBusca" placeholder="Pesquisar...">
                 <h1>Visão Geral</h1>
                 <p>Acompanhe os principais indicadores do sistema</p>
             </section>
@@ -65,8 +67,8 @@
                 <div class="card quick-links-card">
                     <h3>Gráficos Rápidos</h3>
                     <div class="quick-links">
-                        <a href="#">📄 Relatório Mensal de Consumo</a>
-                        <a href="#">⏱ Relatório em Tempo Real de Eficiência</a>
+                        <a href="relatoriosmensais.html">📄 Relatório Mensal de Consumo</a>
+                        <a href="temporeal.html">⏱ Relatório em Tempo Real de Eficiência</a>
                         <a href="#">📑 Encerramentos Recentes</a>
                         <a href="#">🔧 Histórico de Manutenção</a>
                     </div>

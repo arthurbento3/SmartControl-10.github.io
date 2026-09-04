@@ -1,65 +1,42 @@
 function mensagemdeBoasVindas() {
-    let nomeUsuario=prompt("Por favor, digite seu nome:");
-    if (nomeUsuario ==="") {
-        nomeUsuario="Usuario"
+    let nomeUsuario = prompt("Por favor, digite seu nome:");
+    if (!nomeUsuario) {
+        nomeUsuario = "Usuário";
     }
     const agora = new Date();
     const diasSemana = ["Domingo","Segunda-Feira","Terça-Feira","Quarta-Feira","Quinta-Feira","Sexta-Feira","Sábado"];
     
-    const semanaToda =  diasSemana[agora.getDay()];
-    let dia = String(agora.getDate());
-    if (agora.getDate() < 10) {
-        dia = "0" + dia;
-    }
-
-    let mes = String(agora.getMonth() + 1);
-    if (agora.getMonth() + 1 < 10) {
-        mes = "0" + mes;
-    }
-
+    const semanaToda = diasSemana[agora.getDay()];
+    let dia = String(agora.getDate()).padStart(2, '0');
+    let mes = String(agora.getMonth() + 1).padStart(2, '0');
     const ano = agora.getFullYear();
+    let horas = String(agora.getHours()).padStart(2, '0');
+    let minutos = String(agora.getMinutes()).padStart(2, '0');
 
-    let horas = String(agora.getHours());
-    if (agora.getHours() < 10) {
-        horas = "0" + horas;
-    }
-
-    let minutos = String(agora.getMinutes());
-    if (agora.getMinutes() < 10) {
-        minutos = "0" + minutos;
-    }
-
-    const fusoHorario = "-03:00";
-    const dataAtual = `${semanaToda}, ${dia}/${mes}/${ano} - ${horas}:${minutos} (${fusoHorario}) ` ;
-    const texto =  ` Olá, ${nomeUsuario}! Hoje é ${dataAtual}  `;
+    const texto = `Olá, ${nomeUsuario}! Hoje é ${semanaToda}, ${dia}/${mes}/${ano} - ${horas}:${minutos} (-03:00)`;
 
     const formularioLogout = document.querySelector("header form");
     if (formularioLogout) {
-        formularioLogout.childNodes[0].textContent = texto + " ";
+        const spanText = document.createElement("span");
+        spanText.style.color = "#ffffff"; 
+        spanText.style.marginRight = "15px";
+        spanText.textContent = texto;
+        formularioLogout.insertBefore(spanText, formularioLogout.firstChild);
     }
-    console.log(texto);
 }
-  
-mensagemdeBoasVindas();
+
 document.addEventListener("DOMContentLoaded", () => {
+    mensagemdeBoasVindas();
+
     const campoBusca = document.getElementById("campoBusca");
     if (campoBusca) {
-        campoBusca.placeholder = "Pesquisar...";
-
         campoBusca.addEventListener("input", (event) => {
             const termo = event.target.value.toLowerCase().trim();
             const cards = document.querySelectorAll(".card, .chart-card, .quick-links-card, .kpi-card");
 
             cards.forEach((card) => {
                 const conteudoTexto = card.textContent.toLowerCase();
-                const imagens = card.querySelectorAll("img");
-                let textoImagens = "";
-                
-                imagens.forEach(img => {
-                    textoImagens += " " + (img.alt ? img.alt.toLowerCase() : "");
-                });
-
-                if (conteudoTexto.includes(termo) || textoImagens.includes(termo)) {
+                if (conteudoTexto.includes(termo)) {
                     card.style.display = ""; 
                 } else {
                     card.style.display = "none"; 
@@ -70,20 +47,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const btnThemeToggle = document.getElementById("bnt-theme-toggle");
     if (btnThemeToggle) {
-        btnThemeToggle.addEventListener("click", (event) => {
-            event.preventDefault();
-            document.body.classList.toggle("dark-theme"); 
+        btnThemeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-theme");
+            btnThemeToggle.textContent = document.body.classList.contains("dark-theme") ? "☀️" : "🌙";
         });
     }
 
-
-    const menuIcon = document.querySelector(".menu-icon") || document.querySelector(".dropdown");
+    const btnMenuMobile = document.getElementById("btn-menu-mobile");
     const subMenu = document.querySelector(".sub-menu");
 
-    if (menuIcon && subMenu) {
-        menuIcon.addEventListener("click", (event) => {
-            event.preventDefault();
+    if (btnMenuMobile && subMenu) {
+        btnMenuMobile.addEventListener("click", (e) => {
+            e.stopPropagation();
             subMenu.classList.toggle("active-mobile");
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!subMenu.contains(e.target) && !btnMenuMobile.contains(e.target)) {
+                subMenu.classList.remove("active-mobile");
+            }
         });
     }
 });

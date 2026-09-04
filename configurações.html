@@ -1,30 +1,145 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configurações</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurações Do Sistema</title>
+  <link rel="stylesheet" href="assets/css/configurações.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+  <header class="top-bar">
+
+    <a href="dashboard.html" class="btn-top btn-voltar" onclick="if(history.length > 1){ history.back(); return false; }">
+      <i class="fa-solid fa-arrow-left"></i> Voltar
+    </a>
+
+    <a href="index.html" class="btn-top btn-logout" onclick="return confirm('Deseja realmente sair do sistema?');">
+      Logout
+    </a>
+  </header>
+
+  <main class="main-content">
     
-    <header>
-        <p><a href="dashboard.html"><button type="button">Voltar</button></a></p>
-        <img src="assets/imagens/logo.png" > 
-        <p>Configurações do Sistema</p> 
-    </header>
+    <h1 class="page-title">Configurações Do Sistema</h1>
 
-    <main>
-        <form  method="get" action="index.html">
-            <p><button type="submit">Logout</button></p>
+    <div class="settings-grid">
 
-        </form>
-        
-        <p><button type="button">Idioma e Tradução</button></p>
-        <p><button type="button">Conta e Perfil</button></p>
-        <p><button type="button">Privacidade e Segurança</button></p>
-        <p><button type="button">Acessibilidade</button></p>
-    </main>
+      <section class="card config-card">
+        <div class="card-header-icon">
+          <div class="icon-circle">
+            <i class="fa-solid fa-language"></i>
+          </div>
+          <h2 class="config-title">Idioma e Tradução</h2>
+        </div>
 
-    
+        <div class="field-group">
+          <select class="custom-select" id="select-idioma">
+            <option value="pt-BR">Selecionar línguas</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="en-US">English (US)</option>
+            <option value="es-ES">Español</option>
+          </select>
+        </div>
+
+        <button class="btn-action" id="btn-traducao" type="button">Tradução</button>
+      </section>
+
+      <section class="card config-card">
+        <div class="card-header-icon">
+          <div class="icon-circle">
+            <i class="fa-regular fa-user"></i>
+          </div>
+          <h2 class="config-title">Conta e Perfil</h2>
+        </div>
+
+        <div class="buttons-stack">
+          <button class="btn-action btn-icon-text" type="button">
+            <i class="fa-regular fa-user"></i>
+            <span>Mudar de conta</span>
+          </button>
+          
+          <button class="btn-action btn-icon-text" type="button">
+            <i class="fa-solid fa-lock"></i>
+            <span>Gerenciar Perfil</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="card config-card">
+        <div class="card-header-icon">
+          <div class="icon-circle">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h2 class="config-title">Privacidade e Segurança</h2>
+        </div>
+
+        <div class="toggle-list">
+          <div class="toggle-item">
+            <span>Serviços de locação</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="toggle-item">
+            <span>Compartilhei os dados</span>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="link-item">
+            <a href="#">Esqueceu sua senha</a>
+          </div>
+        </div>
+
+        <button class="btn-action" id="btn-privacidade" type="button">Privacidade</button>
+      </section>
+
+      <section class="card config-card">
+        <div class="card-header-icon">
+          <h2 class="config-title">Acessibilidade <span class="sub-title">(Adicional)</span></h2>
+        </div>
+
+        <div class="toggle-list">
+          <div class="toggle-item">
+            <span>Modo Escuro / Alto Contraste</span>
+            <label class="switch">
+              <input type="checkbox" id="dark-mode-toggle">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="toggle-item">
+            <span>Tamanho da Fonte</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="toggle-item">
+            <span>Controle de Voz</span>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer class="bottom-bar">
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
